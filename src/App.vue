@@ -1,17 +1,37 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- <article-comp id="my-article" title='Article' :likes="50" :isPublished="false" /> -->
+    <!-- <GreetComponent hero-name="batman" name="kavin"/>
+    <GreetComponent hero-name="spiderman" name="sebastian"/>
+    <GreetComponent :hero-name="chanel" :name="name"/> -->
+    <button @click="showPopup = true" >Show Popup</button>
+    <PopupComponent v-show="showPopup" @close="closePopup" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+// import GreetComponent from './components/Greet.vue'
+// import ArticleComp from './components/Article.vue'
+import PopupComponent from './components/Popup.vue'
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  components:{
+    // GreetComponent,
+    // ArticleComp,
+    PopupComponent
+  },
+  data(){
+    return{
+      name: 'Kavin sebastian',
+      chanel: 'kavin yeagers',
+      showPopup: false
+    }
+  },
+  methods:{
+    closePopup(name){
+      this.showPopup = false
+      console.log('name', name)
+    }
   }
 }
 </script>
